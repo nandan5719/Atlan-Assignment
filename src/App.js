@@ -1,21 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy, useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import Loader from "./components/loader/Loader";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+const Home = lazy(() => import("./pages/home/Home"));
+const Navbar = lazy(() => import("./components/navbar/Navbar"));
+const Github = lazy(() => import("./components/github/Github"));
+const Editor = lazy(() => import("./pages/editor/Editor"));
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = (checked) => {
+    setDarkMode(checked);
+  };
+
+  return (
+    <div className='App' id={`${darkMode ? `dark` : `light`}-mode`}>
+      <Suspense
+        fallback={
+          // <div>Loading ... </div>
+          <Loader />
+        }
+      >
+        <Router>
+          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <Route path='/' exact component={Home} />
+          <Route path='/editor' exact component={Editor} />
+          <Route path='/github' exact component={Github} />
+        </Router>
+      </Suspense>
+    </div>
+  );
 }
 
 export default App;
