@@ -6,6 +6,7 @@ import Loader from "./components/loader/Loader";
 const Home = lazy(() => import("./pages/home/Home"));
 const Navbar = lazy(() => import("./components/navbar/Navbar"));
 const Github = lazy(() => import("./components/github/Github"));
+const Contact = lazy(() => import("./pages/contact/Contact"));
 const Editor = lazy(() => import("./pages/editor/Editor"));
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <Route path='/' exact component={Home} />
           <Route path='/editor' exact component={Editor} />
+          <Route path='/contact' exact component={Contact} />
           <Route path='/github' exact component={Github} />
         </Router>
       </Suspense>

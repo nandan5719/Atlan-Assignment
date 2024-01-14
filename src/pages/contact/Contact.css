@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This spreads out the children */
+    width: 70vw;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.text-column {
+    margin-left: 1.25rem;
+}
+
+.image-column img {
+    width: 300px;
+    height: auto;
+    margin-right: 1rem;
+}

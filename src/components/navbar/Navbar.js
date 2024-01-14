@@ -17,12 +17,12 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
       link: "/editor",
     },
     {
-      title: "Contact Us",
-      link: "/",
+      title: "Contact Me",
+      link: "/contact",
     },
     {
       title: "Github",
-      link: "https://github.com/kirtiksingh/Atlan-Frontend-Task",
+      link: "https://github.com/nandan5719/Atlan-Assignment",
     },
   ];
 
